@@ -3,7 +3,6 @@ import random
 
 def generate_number(difficulty):
     secret_number = random.randint(0, difficulty)
-    # print(f'this is the secret number{secret_number}')
     return secret_number
 
 

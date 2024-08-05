@@ -1,31 +1,44 @@
 import random
 from time import sleep
+import utils
 
 
 def generate_sequence(difficulty):
-    rand_list = []
-    for n in range(difficulty):
-        rand_list.append(random.randint(1, 101))
+    rand_list = [random.randint(1, 101) for _ in range(difficulty)]
     return rand_list
 
 
 def get_list_from_user(difficulty, rand_list):
-    print('Lets begin!'), sleep(1.5), print('\n' * 10)
-    print('3'), sleep(1.0), print('\n' * 10)
-    print('2'), sleep(1.0), print('\n' * 10)
-    print('1'), sleep(1.0), print('\n' * 10)
-    print(rand_list), sleep(0.7), print('\n' * 10)
+    print('Lets begin!')
+    sleep(1.5)
+    utils.clear_terminal()
+    print('3')
+    sleep(1.0)
+    utils.clear_terminal()
+    print('2')
+    sleep(1.0)
+    utils.clear_terminal()
+    print('1')
+    sleep(1.0)
+    utils.clear_terminal()
+    print(rand_list)
+    sleep(0.7)
+    utils.clear_terminal()
 
-    while True:
-        user_input = input(f'Enter {difficulty} numbers from 1-100, separated by spaces: ')
-        try:
-            user_input_list = [int(item) for item in user_input.split()]
-            if len(user_input_list) == difficulty and all(1 <= item <= 100 for item in user_input_list):
-                return user_input_list
-            else:
-                print(f'Input error. Enter exactly {difficulty} numbers from 1-100.')
-        except ValueError:
-            print('Input error. Make sure all inputs are valid integers.')
+    user_input_list = []
+    for i in range(difficulty):
+        while True:
+            try:
+                user_input = int(input(f'Enter number {i + 1}: '))
+                if 1 <= user_input <= 100:
+                    user_input_list.append(user_input)
+                    break
+                else:
+                    print('Input error. Enter a number between 1-100.')
+            except ValueError:
+                print('Input error. Make sure the input is a valid integer.')
+
+    return user_input_list
 
 
 def is_list_equal(rand_list, user_input_list):
