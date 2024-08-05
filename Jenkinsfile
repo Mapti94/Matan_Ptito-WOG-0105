@@ -16,6 +16,11 @@ pipeline {
                 bat "git clone https://github.com/Mapti94/Matan_Ptito-WOG-0105.git ."
             }
         }
+        stage('List Directory') {
+            steps {
+                bat "dir"
+            }
+        }
         stage('Docker') {
             steps {
                 script {
