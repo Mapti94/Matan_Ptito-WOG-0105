@@ -13,30 +13,27 @@ pipeline {
         }
         stage('Clone Repo') {
             steps {
-                bat "git clone https://github.com/Mapti94/Matan_Ptito-WOG-0105.git"
+                bat "git clone https://github.com/Mapti94/Matan_Ptito-WOG-0105.git ."
             }
         }
         stage('Docker') {
             steps {
                 script {
-                    dir('WOG') {
-                        bat "docker-compose up --build -d"
-                    }
+                    // Run docker-compose command in the current directory
+                    bat "docker-compose up --build -d"
                 }
             }
         }
         stage('E2E') {
             steps {
-                dir('WOG') {
-                    bat "python e2e.py"
-                }
+                // Run e2e tests in the current directory
+                bat "python e2e.py"
             }
         }
         stage('Finalize') {
             steps {
-                dir('WOG') {
-                    bat "docker-compose down"
-                }
+                // Run docker-compose down in the current directory
+                bat "docker-compose down"
             }
         }
         stage('Docker Login') {
