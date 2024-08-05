@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  flask-app:
+    image: main_score:01
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8777:5252"
+    volumes:
+      - "./scores.txt:/scores.txt"
