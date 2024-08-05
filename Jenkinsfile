@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Clone Repo') {
             steps {
-                bat "git clone https://github.com/Mapti94/Matan_Ptito-WOG-0105.git ."
+                bat "git clone https://github.com/Mapti94/Matan_Ptito-WOG-0105/tree/master.git ."
             }
         }
         stage('List Directory') {
