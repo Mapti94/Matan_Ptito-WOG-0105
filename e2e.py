@@ -13,7 +13,7 @@ def test_scores_service():
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     try:
-        driver.get("http://localhost:5254")
+        driver.get("http://localhost:8777")
         score_element = driver.find_element(By.ID, "score")
         score_value = int(score_element.text)
 
