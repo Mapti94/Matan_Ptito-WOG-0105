@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = 'Matan_Ptito-WOG-0105'
+        IMAGE_NAME = 'matan_ptito-wog-0105'
         IMAGE_TAG = 'latest'
         DOCKER_CREDENTIALS_ID = 'docker-hub-credential'
     }
