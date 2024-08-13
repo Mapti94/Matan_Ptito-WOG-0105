@@ -12,16 +12,20 @@ def test_scores_service():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
-    driver.get("http://127.0.0.1:5245/")
-    score_element = driver.find_element(By.ID, "score")
-    score_value = int(score_element.text)
+    try:
+        driver.get("http://localhost:5254")
+        score_element = driver.find_element(By.ID, "score")
+        score_value = int(score_element.text)
 
-    if 0 <= score_value <= 1000:
-        driver.quit()
-        return True
-    else:
-        driver.quit()
+        if 0 <= score_value <= 1000:
+            return True
+        else:
+            return False
+    except Exception as failure:
+        print(f"An error occurred: {failure}")
         return False
+    finally:
+        driver.quit()
 
 
 def main_function():
