@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Run docker-compose command in the current directory
-                    bat "docker build -t ${IMAGE_NAME}"
+                    bat "docker-compose build"
                 }
             }
         }
