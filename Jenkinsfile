@@ -58,7 +58,7 @@ pipeline {
                 script {
                     bat "docker tag %IMAGE_NAME%:%IMAGE_TAG% %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                     bat "docker push %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
-                    bat 'docker rmi -vf %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%'
+                    bat 'docker rmi -f %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%'
                 }
             }
         }
