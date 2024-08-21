@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 
 app = Flask(__name__)
 
@@ -13,6 +13,7 @@ def score_server():
     <html>
         <head>
             <title>Score Game</title>
+            <link rel="icon" type="image/x-icon" href="{url_for('static', filename='favicon.ico')}">
         </head>
         <body>
             <h1>The score is:</h1>
