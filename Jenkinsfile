@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Run docker-compose command in the current directory
-                    bat "docker-compose up --build"
+                    bat "docker-compose up -d"
                 }
             }
         }
