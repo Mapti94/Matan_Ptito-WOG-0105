@@ -4,6 +4,7 @@ pipeline {
         IMAGE_NAME = 'main_score'
         IMAGE_TAG = 'latest'
         DOCKER_CREDENTIALS_ID = 'docker-hub-credential'
+        USERNAME =  'mapti94'
     }
     stages {
         stage('Clean UP') {
@@ -54,7 +55,7 @@ pipeline {
             steps {
                 script {
                     bat "docker tag %IMAGE_NAME%:%IMAGE_TAG% %IMAGE_NAME%:%IMAGE_TAG%"
-                    bat "docker push %DOCKER_USER%/%IMAGE_NAME%:%IMAGE_TAG%"
+                    bat "docker push %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                 }
             }
         }
