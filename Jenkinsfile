@@ -53,8 +53,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    bat "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:${IMAGE_TAG}"
-                    bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    bat "docker tag %IMAGE_NAME%:%IMAGE_TAG% %IMAGE_NAME%:%IMAGE_TAG%"
+                    bat "docker push %DOCKER_USER%:%IMAGE_NAME%:%IMAGE_TAG%"
                 }
             }
         }
