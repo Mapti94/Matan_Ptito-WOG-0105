@@ -54,7 +54,7 @@ pipeline {
         stage('Push Docker Image and clean') {
             steps {
                 script {
-                    bat "echo "" > score.txt"
+                    bat "> score.txt"
                     bat "docker tag %IMAGE_NAME%:%IMAGE_TAG% %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                     bat "docker push %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                     bat 'docker rmi -vf %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%'
