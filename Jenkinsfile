@@ -40,7 +40,7 @@ pipeline {
         stage('Finalize') {
             steps {
                 // Run docker-compose down in the current directory
-                bat "echo "" > score.txt"
+                bat "echo '' > score.txt"
                 bat "docker-compose down"
             }
         }
