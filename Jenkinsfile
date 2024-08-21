@@ -32,13 +32,15 @@ pipeline {
         }
         stage('E2E') {
             steps {
-                // Run e2e tests in the current directory
+                // Run e2e tests in the current directory with score 1
+                bat "echo "1" > score.txt"
                 bat "python e2e.py"
             }
         }
         stage('Finalize') {
             steps {
                 // Run docker-compose down in the current directory
+                bat "echo "" > score.txt"
                 bat "docker-compose down"
             }
         }
@@ -54,7 +56,6 @@ pipeline {
         stage('Push Docker Image and clean') {
             steps {
                 script {
-                    bat "> score.txt"
                     bat "docker tag %IMAGE_NAME%:%IMAGE_TAG% %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                     bat "docker push %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%"
                     bat 'docker rmi -vf %USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%'
