@@ -33,7 +33,7 @@ pipeline {
         stage('E2E') {
             steps {
                 // Run e2e tests in the current directory with score 1
-                bat "echo "1" > score.txt"
+                bat "echo 1 > score.txt"
                 bat "python e2e.py"
             }
         }
