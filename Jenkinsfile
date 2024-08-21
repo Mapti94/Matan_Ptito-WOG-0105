@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = 'wog-docker'
+        IMAGE_NAME = 'main_score'
         IMAGE_TAG = 'latest'
         DOCKER_CREDENTIALS_ID = 'docker-hub-credential'
     }

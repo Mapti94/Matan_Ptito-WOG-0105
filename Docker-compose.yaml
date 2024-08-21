@@ -2,7 +2,7 @@ version: '2.28'
 
 services:
   flask-app:
-    image: main_score:03
+    image: main_score
     build:
       context: .
       dockerfile: Dockerfile
